@@ -18,7 +18,7 @@ import com.abdallah.sarrawi.mymsgs.models.MsgsModel
 import com.abdallah.sarrawi.mymsgs.models.MsgsTypesModel
 
 @Database(entities = [MsgsTypesModel::class, MsgsModel::class, FavoriteModel::class], version = 1, exportSchema = false)
-@TypeConverters(LocalDateTimeConverter::class)
+//@TypeConverters(LocalDateTimeConverter::class)
 abstract class PostDatabase : RoomDatabase() {
 
     abstract fun typesDao(): MsgsTypesDao
@@ -38,33 +38,9 @@ abstract class PostDatabase : RoomDatabase() {
 
         private fun buildDatabase(context: Context): PostDatabase {
             return Room.databaseBuilder(context.applicationContext, PostDatabase::class.java, "PostDatabase.db")
-//                .addMigrations(MIGRATION_6_7, MIGRATION_7_8,MIGRATION_8_9)
-                .fallbackToDestructiveMigration()
+
                 .build()
         }
-
-//        private val MIGRATION_6_7: Migration = object : Migration(6, 7) {
-//            override fun migrate(database: SupportSQLiteDatabase) {
-//                Log.d("Migration", "Executing migration from version $startVersion to version $endVersion")
-//
-//                // تنفيذ عملية الترحيل هنا
-//            }
-//        }
-//
-//        private val MIGRATION_7_8: Migration = object : Migration(7, 8) {
-//            override fun migrate(database: SupportSQLiteDatabase) {
-//                database.execSQL("ALTER TABLE msg_table ADD COLUMN createdAt String")
-//                Log.d("Migration", "Executing migration from version $startVersion to version $endVersion")
-//
-//            }
-//        }
-//
-//        private val MIGRATION_8_9: Migration = object : Migration(8, 9) {
-//            override fun migrate(database: SupportSQLiteDatabase) {
-//                Log.d("Migration", "Executing migration from version $startVersion to version $endVersion")
-//
-//            }
-//        }
 
 
     }

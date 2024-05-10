@@ -33,8 +33,9 @@ data class MsgsModel(
 
     @ColumnInfo("is_fav")
     @SerializedName("is_fav")
-    var is_fav:Boolean = false,
-    @ColumnInfo(name = "createdAt")
-    var createdAt: String? = null // قيمة افتراضية تكون null
+    var is_fav:Boolean = false
+
+//    @ColumnInfo(name = "createdAt")
+//    var createdAt: String? = null // قيمة افتراضية تكون null
 
 )
